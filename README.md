@@ -1,4 +1,4 @@
-# 🚀 AMCSH - Advanced Modern C Shell
+# 🚀 amcsh - Advanced Modern C Shell
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)]()
@@ -7,7 +7,7 @@
 
 <div align="center">
 
-![AMCSH Logo](https://via.placeholder.com/150x150.png?text=AMCSH)
+<img src="amcsh.png" alt="amcsh Logo" width="200"/>
 
 *A high-performance, modern shell written in C with focus on speed and efficiency* 🏃‍♂️💨
 
