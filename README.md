@@ -10,7 +10,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/images/amcsh-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/images/amcsh-light.png">
-  <img alt="amcsh Logo" src="assets/images/amcsh-light.png" width="200">
+  <img alt="amcsh Logo" src="assets/images/amcsh-light.png" width="600">
 </picture>
 
 *A high-performance, modern shell written in C with focus on speed and efficiency* 🏃‍♂️💨
@@ -145,7 +145,7 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 2. Create your feature branch (`git checkout -b feature/amazing-feature`)
 3. Commit your changes (`git commit -m 'feat: Add amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+5. Open a PR
 
 ## 📝 License
 
@@ -153,7 +153,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👥 Authors
 
-- **Your Name** - *Initial work* - [GitHub Profile](https://github.com/yourusername)
+- Amaar - *Initial work* - [GitHub Profile](https://github.com/dragonxdev)
 
 ## 🙏 Acknowledgments
 
@@ -163,5 +163,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 <div align="center">
-Made with ❤️ by the AMCSH Team
+Made by Amaar :)
 </div>
