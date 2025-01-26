@@ -7,7 +7,11 @@
 
 <div align="center">
 
-<img src="amcsh.png" alt="amcsh Logo" width="200"/>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/images/amcsh-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/images/amcsh-light.png">
+  <img alt="amcsh Logo" src="assets/images/amcsh-light.png" width="200">
+</picture>
 
 *A high-performance, modern shell written in C with focus on speed and efficiency* 🏃‍♂️💨
 
@@ -118,6 +122,8 @@ amcsh/
 ├── include/
 │   ├── amcsh.h         # Main header
 │   └── parser.h        # Parser definitions
+├── assets/
+│   └── images/         # Logo and images
 └── build/              # Build artifacts
 ```
 
