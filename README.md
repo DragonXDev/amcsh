@@ -10,7 +10,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/images/amcsh-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/images/amcsh-light.png">
-  <img alt="amcsh Logo" src="assets/images/amcsh-light.png" width="600">
+  <img alt="amcsh Logo" src="assets/images/amcsh-light.png" width="400">
 </picture>
 
 *A high-performance, modern shell written in C with focus on speed and efficiency* 🏃‍♂️💨
