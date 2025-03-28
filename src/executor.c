@@ -25,6 +25,7 @@ static builtin_cmd_t builtins[] = {
     {"cd", amcsh_builtin_cd},
     {"clear", amcsh_builtin_clear},
     {"exit", amcsh_builtin_exit},
+    {"history", amcsh_builtin_history},
     {"jobs", amcsh_builtin_jobs},
     {"fg", amcsh_builtin_fg},
     {"bg", amcsh_builtin_bg},

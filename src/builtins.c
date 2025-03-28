@@ -121,6 +121,7 @@ static const struct {
     {"fg", "Move job to foreground"},
     {"bg", "Move job to background"},
     {"help", "Display information about built-in commands"},
+    {"history", "Display command history"},
     {"jobs", "List active jobs"},
     {"pwd", "Print the current working directory"},
     {NULL, NULL}
@@ -161,6 +162,10 @@ int amcsh_builtin_help(char **args) {
                 } else if (strcmp(args[1], "bg") == 0) {
                     printf("Usage: bg [job_id]\n");
                     printf("  Continues the specified job in the background.\n");
+                } else if (strcmp(args[1], "history") == 0) {
+                    printf("Usage: history [n]\n");
+                    printf("  Display the command history list with line numbers.\n");
+                    printf("  An optional argument 'n' limits the number of entries shown.\n");
                 }
                 
                 return 0;
@@ -177,5 +182,30 @@ int amcsh_builtin_help(char **args) {
 int amcsh_builtin_clear(char **args) {
     // ANSI escape sequence to clear screen and move cursor to home position
     printf("\033[2J\033[H");
+    return 0;
+}
+
+int amcsh_builtin_history(char **args) {
+    int limit = AMCSH_HISTORY_SIZE;
+    
+    // Check if a limit is specified
+    if (args[1]) {
+        char *endptr;
+        int num = strtol(args[1], &endptr, 10);
+        if (*endptr == '\0' && num > 0) {
+            limit = num;
+        }
+    }
+    
+    // Get history items
+    for (int i = 0; i < limit; i++) {
+        char *cmd = amcsh_history_get(i);
+        if (cmd) {
+            printf("%5d  %s\n", i + 1, cmd);
+        } else {
+            break;
+        }
+    }
+    
     return 0;
 }

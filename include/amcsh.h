@@ -113,6 +113,7 @@ int amcsh_builtin_pwd(char **args);
 int amcsh_builtin_echo(char **args);
 int amcsh_builtin_help(char **args);
 int amcsh_builtin_clear(char **args);
+int amcsh_builtin_history(char **args);
 
 // History management
 char *amcsh_history_get(int index);
