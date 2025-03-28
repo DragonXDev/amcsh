@@ -2,6 +2,7 @@
 #include "parser.h"
 #include <string.h>
 #include <ctype.h>
+#include <stdlib.h>
 
 // Fast string tokenization without copying
 static char *skip_whitespace(char *str) {
