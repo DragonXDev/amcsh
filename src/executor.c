@@ -23,6 +23,7 @@ typedef struct {
 // List of built-in commands
 static builtin_cmd_t builtins[] = {
     {"cd", amcsh_builtin_cd},
+    {"clear", amcsh_builtin_clear},
     {"exit", amcsh_builtin_exit},
     {"jobs", amcsh_builtin_jobs},
     {"fg", amcsh_builtin_fg},

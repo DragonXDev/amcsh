@@ -115,6 +115,7 @@ static const struct {
     const char *desc;
 } builtin_help[] = {
     {"cd", "Change the current directory"},
+    {"clear", "Clear the terminal screen"},
     {"echo", "Display a line of text"},
     {"exit", "Exit the shell"},
     {"fg", "Move job to foreground"},
@@ -170,5 +171,11 @@ int amcsh_builtin_help(char **args) {
         return 1;
     }
     
+    return 0;
+}
+
+int amcsh_builtin_clear(char **args) {
+    // ANSI escape sequence to clear screen and move cursor to home position
+    printf("\033[2J\033[H");
     return 0;
 }
