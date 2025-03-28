@@ -82,3 +82,29 @@ int amcsh_builtin_pwd(char **args) {
         return 1;
     }
 }
+
+int amcsh_builtin_echo(char **args) {
+    int i = 1;
+    bool newline = true;
+    
+    // Check for -n option (no newline)
+    if (args[1] && strcmp(args[1], "-n") == 0) {
+        newline = false;
+        i++;
+    }
+    
+    // Print all arguments with spaces between them
+    while (args[i]) {
+        printf("%s", args[i]);
+        if (args[i+1]) {
+            printf(" ");
+        }
+        i++;
+    }
+    
+    if (newline) {
+        printf("\n");
+    }
+    
+    return 0;
+}
