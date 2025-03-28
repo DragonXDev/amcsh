@@ -45,6 +45,7 @@ typedef struct amcsh_command {
     int argc;              // Number of arguments
     int redirect_in;       // Input redirection fd
     int redirect_out;      // Output redirection fd
+    bool append_out;       // Append to output file?
     int pipe_read;        // Read end of pipe
     int pipe_write;       // Write end of pipe
     bool background;      // Run in background?
