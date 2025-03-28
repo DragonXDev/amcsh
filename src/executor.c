@@ -36,7 +36,7 @@ static builtin_cmd_t builtins[] = {
 };
 
 // Find built-in command
-static builtin_func get_builtin(const char *cmd) {
+builtin_func get_builtin(const char *cmd) {
     for (builtin_cmd_t *builtin = builtins; builtin->name; builtin++) {
         if (strcmp(cmd, builtin->name) == 0) {
             return builtin->func;
@@ -47,10 +47,10 @@ static builtin_func get_builtin(const char *cmd) {
 
 // Fast path for built-in commands
 int amcsh_execute_builtin(amcsh_command_t *cmd) {
-    if (strcmp(cmd->argv[0], "cd") == 0) {
-        return amcsh_builtin_cd(cmd->argv);
-    } else if (strcmp(cmd->argv[0], "exit") == 0) {
-        return amcsh_builtin_exit(cmd->argv);
+    // Use the generic builtin lookup function instead of hardcoding
+    builtin_func builtin = get_builtin(cmd->argv[0]);
+    if (builtin) {
+        return builtin(cmd->argv);
     }
     return -1; // Not a builtin
 }

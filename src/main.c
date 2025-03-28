@@ -211,6 +211,12 @@ int main(int argc, char *argv[])
                 if (shell_state.exit_status == 0 && !cached_path) {
                     amcsh_cache_update(cmd.argv[0], cmd.argv[0]);
                 }
+                
+                // Free argv array
+                if (cmd.argv) {
+                    free(cmd.argv);
+                    cmd.argv = NULL;
+                }
             }
         }
 

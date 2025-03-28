@@ -26,6 +26,9 @@ void amcsh_parse_command(amcsh_command_t *cmd) {
     char *current = cmd->raw_cmd;
     cmd->argc = 0;
     
+    // Allocate memory for argv array
+    cmd->argv = (char **)malloc(AMCSH_MAX_ARGS * sizeof(char *));
+    
     while (*current && cmd->argc < AMCSH_MAX_ARGS - 1) {
         current = skip_whitespace(current);
         if (!*current) break;
