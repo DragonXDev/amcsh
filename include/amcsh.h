@@ -19,6 +19,7 @@ typedef struct {
     char *path;            // Full path to executable
     time_t last_used;      // Last time this command was used
     unsigned int uses;     // Number of times this command was used
+    pthread_rwlock_t lock; // Lock for thread safety
 } amcsh_cmd_cache_entry_t;
 
 // Thread pool worker
