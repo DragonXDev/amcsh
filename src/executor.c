@@ -29,6 +29,7 @@ static builtin_cmd_t builtins[] = {
     {"bg", amcsh_builtin_bg},
     {"pwd", amcsh_builtin_pwd},
     {"echo", amcsh_builtin_echo},
+    {"help", amcsh_builtin_help},
     {NULL, NULL}
 };
 

@@ -108,3 +108,67 @@ int amcsh_builtin_echo(char **args) {
     
     return 0;
 }
+
+// Help information for built-in commands
+static const struct {
+    const char *name;
+    const char *desc;
+} builtin_help[] = {
+    {"cd", "Change the current directory"},
+    {"echo", "Display a line of text"},
+    {"exit", "Exit the shell"},
+    {"fg", "Move job to foreground"},
+    {"bg", "Move job to background"},
+    {"help", "Display information about built-in commands"},
+    {"jobs", "List active jobs"},
+    {"pwd", "Print the current working directory"},
+    {NULL, NULL}
+};
+
+int amcsh_builtin_help(char **args) {
+    if (!args[1]) {
+        // No argument - list all built-in commands
+        printf("\033[1;36mamcsh %s\033[0m - High Performance Shell\n\n", AMCSH_VERSION);
+        printf("These shell commands are defined internally.\n");
+        printf("Type 'help name' to find out more about the function 'name'.\n\n");
+        
+        printf("Built-in commands:\n");
+        for (int i = 0; builtin_help[i].name; i++) {
+            printf("  \033[1;32m%-10s\033[0m %s\n", builtin_help[i].name, builtin_help[i].desc);
+        }
+    } else {
+        // Find specific command help
+        for (int i = 0; builtin_help[i].name; i++) {
+            if (strcmp(args[1], builtin_help[i].name) == 0) {
+                printf("%s: %s\n", builtin_help[i].name, builtin_help[i].desc);
+                
+                // Additional usage information for specific commands
+                if (strcmp(args[1], "cd") == 0) {
+                    printf("Usage: cd [directory]\n");
+                    printf("  Changes the current directory to [directory].\n");
+                    printf("  If no directory is specified, changes to the home directory.\n");
+                } else if (strcmp(args[1], "echo") == 0) {
+                    printf("Usage: echo [-n] [string...]\n");
+                    printf("  Display the STRING(s) on standard output.\n");
+                    printf("  -n    do not output the trailing newline\n");
+                } else if (strcmp(args[1], "jobs") == 0) {
+                    printf("Usage: jobs\n");
+                    printf("  Lists all jobs that are running in the background.\n");
+                } else if (strcmp(args[1], "fg") == 0) {
+                    printf("Usage: fg [job_id]\n");
+                    printf("  Brings the specified job to the foreground.\n");
+                } else if (strcmp(args[1], "bg") == 0) {
+                    printf("Usage: bg [job_id]\n");
+                    printf("  Continues the specified job in the background.\n");
+                }
+                
+                return 0;
+            }
+        }
+        
+        fprintf(stderr, "amcsh: help: no help topics match '%s'\n", args[1]);
+        return 1;
+    }
+    
+    return 0;
+}
