@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <limits.h>
 
 extern amcsh_state_t shell_state;
 
@@ -69,4 +70,15 @@ int amcsh_builtin_exit(char **args) {
     // TODO: Clean up resources before exit
     exit(shell_state.exit_status);
     return 0;
+}
+
+int amcsh_builtin_pwd(char **args) {
+    char cwd[PATH_MAX];
+    if (getcwd(cwd, sizeof(cwd)) != NULL) {
+        printf("%s\n", cwd);
+        return 0;
+    } else {
+        perror("amcsh: pwd");
+        return 1;
+    }
 }

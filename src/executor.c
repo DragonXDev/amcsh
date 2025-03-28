@@ -27,6 +27,7 @@ static builtin_cmd_t builtins[] = {
     {"jobs", amcsh_builtin_jobs},
     {"fg", amcsh_builtin_fg},
     {"bg", amcsh_builtin_bg},
+    {"pwd", amcsh_builtin_pwd},
     {NULL, NULL}
 };
 
